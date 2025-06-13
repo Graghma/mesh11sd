@@ -6,6 +6,8 @@ ath10k-board-qca4019 ath10k-firmware-qca4019 base-files ca-bundle dnsmasq dropbe
 
 ath10k-board-qca4019 ath10k-firmware-qca4019-ct base-files ca-bundle dnsmasq dropbear firewall4 fstools kmod-ath10k kmod-gpio-button-hotplug kmod-leds-gpio kmod-nft-offload kmod-usb-dwc3 kmod-usb-dwc3-qcom kmod-usb3 libc libgcc libustream-mbedtls logd mtd netifd nftables odhcp6c odhcpd-ipv6only opkg ppp ppp-mod-pppoe procd-ujail uboot-envtools uci uclient-fetch urandom-seed urngd wpad-basic-mbedtls uboot-envtools kmod-leds-pca963x luci -wpad-basic-mbedtls wpad-mbedtls px5g-mbedtls ip-full kmod-nft-bridge vxlan uhttpd mesh11sd
 
+ath10k-board-qca4019 ath10k-firmware-qca4019-ct base-files ca-bundle dnsmasq dropbear firewall4 fstools kmod-ath10k kmod-gpio-button-hotplug kmod-leds-gpio kmod-nft-offload kmod-usb-dwc3 kmod-usb-dwc3-qcom kmod-usb3 libc libgcc libustream-mbedtls logd mtd netifd nftables odhcp6c odhcpd-ipv6only opkg ppp ppp-mod-pppoe procd-ujail uboot-envtools uci uclient-fetch urandom-seed urngd -wpad-basic-mbedtls uboot-envtools kmod-leds-pca963x luci wpad-mbedtls px5g-mbedtls ip-full kmod-nft-bridge vxlan mesh11sd
+
 
 Script to run on first boot (uci-defaults)
 Script to run on first boot (uci-defaults)
@@ -18,13 +20,13 @@ uci set mesh11sd.setup.auto_config='0' # Note: This is set to 0 for Confidence T
 
 uci set mesh11sd.setup.auto_mesh_id='graghma' # This is a secret mesh ID string of your choice.
 uci set mesh11sd.setup.mesh_gate_base_ssid='Internet' # This is your AP SSID string
-uci set mesh11sd.setup.mesh_gate_encryption='2' # This selects the encryption type to use on your AP
+uci set mesh11sd.setup.mesh_gate_encryption='4' # This selects the encryption type to use on your AP
 uci set mesh11sd.setup.mesh_gate_key='9522011841' # This is the WiFi code to use when connecting to your AP
 uci set mesh11sd.setup.auto_mesh_key='Graghma!'
 uci set mesh11sd.setup.mesh_basename='Grah'
 uci set mesh11sd.setup.country='US'
-network.uci commit mesh11sd
-uci commit network
+uci set mesh11sd.setup.portal_detect='1'
+uci commit mesh11sd
 
 # For security, set your root password:
 rootpassword="Graghma!"
