@@ -1,0 +1,9 @@
+Just used the bin files linked on the techdata page
+v4
+https://openwrt.org/toh/hwdata/tp-link/tp-link_deco_m4r_v4
+
+v1
+https://openwrt.org/toh/hwdata/tp-link/tp-link_m4r_v1
+
+s4
+https://openwrt.org/toh/tp-link/deco_s4
